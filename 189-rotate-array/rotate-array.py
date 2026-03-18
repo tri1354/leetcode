@@ -12,27 +12,35 @@ class Solution:
         #         j -= 1
         #     i -= 1
 
-        left = 0
-        right = len(nums) - 1
 
-        while left < right:
-            nums[left], nums[right] = nums[right], nums[left]
-            left += 1
-            right -= 1
+        # left = 0
+        # right = len(nums) - 1
 
-        mod = k%(len(nums))
-        left1 = 0
-        right1 = mod - 1
+        # while left < right:
+        #     nums[left], nums[right] = nums[right], nums[left]
+        #     left += 1
+        #     right -= 1
 
-        while left1 < right1:
-            nums[left1], nums[right1] = nums[right1], nums[left1]
-            left1 += 1
-            right1 -= 1
+        # mod = k%(len(nums))
+        # left1 = 0
+        # right1 = mod - 1
 
-        left2 = mod
-        right2 = len(nums) - 1
+        # while left1 < right1:
+        #     nums[left1], nums[right1] = nums[right1], nums[left1]
+        #     left1 += 1
+        #     right1 -= 1
 
-        while left2 < right2:
-            nums[left2], nums[right2] = nums[right2], nums[left2]
-            left2 += 1
-            right2 -= 1
+        # left2 = mod
+        # right2 = len(nums) - 1
+
+        # while left2 < right2:
+        #     nums[left2], nums[right2] = nums[right2], nums[left2]
+        #     left2 += 1
+        #     right2 -= 1
+
+
+        n = len(nums)
+        k = k % n
+        # 'nums =': create new list
+        # 'nums[:]': in-place fix
+        nums[:] = nums[n-k:] +  nums[:n-k]
