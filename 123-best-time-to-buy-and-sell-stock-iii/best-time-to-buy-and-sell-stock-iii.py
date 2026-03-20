@@ -27,25 +27,40 @@ class Solution:
         # return max_profit
 
 
-        n = len(prices)
-        if n < 2:
-            return 0
+        # n = len(prices)
+        # if n < 2:
+        #     return 0
         
-        left = [0] * n
-        right = [0] * n
+        # left = [0] * n
+        # right = [0] * n
 
-        min_price = prices[0]
-        for i in range(1, n):
-            min_price = min(min_price, prices[i])
-            left[i] = max(left[i-1], prices[i] - min_price)
+        # min_price = prices[0]
+        # for i in range(1, n):
+        #     min_price = min(min_price, prices[i])
+        #     left[i] = max(left[i-1], prices[i] - min_price)
 
-        max_price = prices[-1]
-        for i in range(n-2, -1, -1):
-            max_price = max(max_price, prices[i])
-            right[i] = max(right[i+1], max_price - prices[i])
+        # max_price = prices[-1]
+        # for i in range(n-2, -1, -1):
+        #     max_price = max(max_price, prices[i])
+        #     right[i] = max(right[i+1], max_price - prices[i])
 
-        max_profit = 0
-        for i in range(n):
-            max_profit = max(max_profit, left[i] + right[i])
+        # max_profit = 0
+        # for i in range(n):
+        #     max_profit = max(max_profit, left[i] + right[i])
 
-        return max_profit
+        # return max_profit
+
+
+        buy1=float('inf')
+        buy2=float('inf')
+        sell1=0
+        sell2=0
+
+        for price in prices:
+            buy1=min(buy1,price)
+            sell1=max(sell1,price-buy1)
+
+            buy2=min(buy2,price-sell1)
+            sell2=max(sell2,price-buy2)
+        
+        return sell2
