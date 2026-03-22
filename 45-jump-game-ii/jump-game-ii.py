@@ -6,12 +6,12 @@ class Solution:
         if checkpoint_pos == len(nums)-1:
             return 0
         while checkpoint < len(nums)-1:
+            temp = checkpoint
             temp_pos = checkpoint_pos
-            for i in range(checkpoint_pos, checkpoint+1):
+            for i in range(temp_pos, temp+1):
                 if nums[i]+i > checkpoint:
                     checkpoint = nums[i]+i
-                    temp_pos = i
-            checkpoint_pos = temp_pos
+                    checkpoint_pos = i
             steps += 1
         return steps + 1
 
