@@ -1,5 +1,6 @@
 class Solution:
     def trap(self, height: List[int]) -> int:
+# Time-efficient way
         left = 0
         right = len(height) - 1
         max_left = height[left]
@@ -17,6 +18,7 @@ class Solution:
         return water
 
 
+# Memory-efficient way
         # n = len(height)
         # max_heights = [0] * n
         # max_height = 0
@@ -31,6 +33,7 @@ class Solution:
         # return water
 
 
+# My 1st way
         # n = len(height)
         # water = [0] * n
         # max = 0
