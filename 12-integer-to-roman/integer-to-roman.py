@@ -18,8 +18,8 @@ class Solution:
             else:
                 for j in range(n%5):
                     integer.insert(0, roman[i])
-                if int(n/5) == 1:
+                if n//5 == 1:
                     integer.insert(0, roman[i+1])
-            N = int(N/10)
+            N //= 10
         ans = "".join(integer)
         return ans
