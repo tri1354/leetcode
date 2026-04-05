@@ -4,9 +4,10 @@ class Solution:
         left = 0
         right = len(height) - 1
         while left < right:
-            water = max(water, (min(height[left], height[right]) * (right - left)))
             if height[left] < height[right]:
+                water = max(water, height[left] * (right - left))
                 left += 1
             else:
+                water = max(water, height[right] * (right - left))
                 right -= 1
         return water
